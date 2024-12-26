@@ -28,7 +28,6 @@ export class UsersController {
     return this.myUsersService.findOne(id);
   }
 
-
   // ValidationPipe is that use for validation which have DTO
   @Post()
   create(@Body(ValidationPipe) createUserDto: CreateUserDto) {
