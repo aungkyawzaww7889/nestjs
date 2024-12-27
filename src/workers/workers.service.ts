@@ -6,12 +6,11 @@ import { DatabaseService } from 'src/database/database.service';
 
 @Injectable()
 export class WorkersService {
-
-  constructor(private readonly databaseService:DatabaseService) {}
+  constructor(private readonly databaseService: DatabaseService) {}
 
   async create(createWorkerDto: CreateWorkerDto) {
     return this.databaseService.worker.create({
-      data: createWorkerDto
+      data: createWorkerDto,
     });
   }
 
@@ -20,7 +19,6 @@ export class WorkersService {
   }
 
   async findOne(id: number) {
-
     // if(id !== ){
     //   return `This ${id}`;
     // }else{
@@ -29,11 +27,9 @@ export class WorkersService {
     //   });
     // }
 
-    // return this.databaseService.worker.findUnique({
-    //   where: { id },
-    // });
-
-    
+    return this.databaseService.worker.findUnique({
+      where: { id },
+    });
   }
 
   async update(id: number, updateWorkerDto: UpdateWorkerDto) {
